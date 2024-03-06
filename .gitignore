@@ -7,8 +7,6 @@ testmail.php
 
 local/
 
-pub/
-
 scripts/
 
 temp/
@@ -36,3 +34,31 @@ README.txt
 robots.txt
 
 test.html
+
+pub/ape/
+
+pub/cm/
+
+pub/codemirror-5.65.16/
+
+pub/css/
+
+pub/fox/
+
+pub/guiedit/
+
+pub/icons/
+
+pub/skins/
+
+pub/ultralightbox/
+
+pub/wsplus/
+
+pub/pmwiki-utils.js
+
+pub/dataextractor/dataextractor_01.js
+
+pub/dataextractor/dataextractor_02.js
+
+pub/dataextractor/dataextractormode.js
