@@ -324,13 +324,6 @@ var generateCSV = (source = '', fieldDefsArr = []) => {
     if (!isEmpty(currentFind)) {
       // highlight the find
       if (!isEmpty(currentFind.start) && currentFind.start.str) {
-        // HTML encode the start string
-        /*
-        var searchStr = currentFind.start.str.replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('\n', '<br>');
-        var repl = '<span style="background-color: ' + currentFind.start.col + '">' + searchStr + '</span>';
-        highLightedSource = highLightedSource.replaceAt(searchStr, repl, selectedPos);
-        selectedPos = highLightedSource.indexOf(repl, selectedPos) + repl.length;
-        */
         // create markText objects for CodeMirror
         newMarkObj = generateMarkObj(source, currentPos, markLine, markCh, currentFind, true);
         markTextArr.push(newMarkObj.mark);
@@ -340,14 +333,6 @@ var generateCSV = (source = '', fieldDefsArr = []) => {
         currentPos = currentFind.start.lastIndex;
 
         if (!isEmpty(currentFind.end)) {
-          // HTML encode the end string
-          /*
-          searchStr = currentFind.end.str.replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('\n', '<br>');
-          var repl = '<span style="background-color: ' + currentFind.end.col + '">' + searchStr + '</span>';
-          highLightedSource = highLightedSource.replaceAt(searchStr, repl, selectedPos);
-          selectedPos = highLightedSource.indexOf(repl, selectedPos) + repl.length;
-          */
-
           // if the current field is a starter field, push the last row in the data array
           // and reset the lastRow object
           if (currentFind.fieldName == fieldDefsArr[0].fieldName) {
@@ -398,7 +383,6 @@ var generateCSV = (source = '', fieldDefsArr = []) => {
           else {
             fieldIdx = 0;
           }
-
         }
       }
     }
@@ -713,12 +697,14 @@ var extractThread;
 var updateCSV = () => {
   //var fieldDef = getFieldDef();
   gCM[gResultingCSVInputID].setValue('');
+  document.getElementById(gResultingCSVInputID + "Wait").style.display = 'inline';
+  document.getElementById(gHighlightedSourceID + "Wait").style.display = 'inline';
   // extract asynchronously to  allow interface changes to happen
   clearTimeout(extractThread);
   extractThread = setTimeout(() => {
     var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef());
-    //document.getElementById(gResultingCSVInput + "Wait").style.display = 'none';
-    //document.getElementById(gHighlightedSource + "Wait").style.display = 'none';
+    document.getElementById(gResultingCSVInputID + "Wait").style.display = 'none';
+    document.getElementById(gHighlightedSourceID + "Wait").style.display = 'none';
     gCM[gResultingCSVInputID].setValue(result.resultCSV);
     //gCM[gHighlightedSourceID].setValue(result.highLightedSource);
 
