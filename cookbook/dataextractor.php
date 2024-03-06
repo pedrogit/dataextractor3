@@ -23,7 +23,8 @@ function LoadCMEditor($m)
   ';
   $HTMLFooterFmt['cmeditor-'.$id] = '<script type="text/javascript">
     gCM["'.$id.'"] = CodeMirror(document.getElementById("'.$id.'"), {
-      mode:  '.$mode.'
+      mode:  '.$mode.',
+      lineWrapping: true
     });
   </script>';
   
@@ -58,7 +59,7 @@ function DataExtractorBinder($m)
 
     document.getElementById('section-list').addEventListener('sectionchange', handleFieldChange);
 
-    //gCM[gHighlightedSourceID].on('change', updateCSV);
+    gCM[gHighlightedSourceID].on('change', updateCSV);
   </script>");
   
   SDV($HTMLHeaderFmt['dataextractor'], "<script type='text/javascript' src='pub/dataextractor/dataextractor.js'></script>
