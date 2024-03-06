@@ -693,33 +693,38 @@ var updateMode = () => {
   gCM[gHighlightedSourceID].setOption("mode", 'dataextractor');
 }
 
+const updateMarkers = () => {
+  // clear current markers
+  if (gCM[gHighlightedSourceID].markers)
+  {
+    gCM[gHighlightedSourceID].markers.forEach(function (mark) {
+      mark.clear();
+    });      
+  }
+
+  // apply new markers
+  gCM[gHighlightedSourceID].markers = [];
+  gMarkers.forEach(function (mark) {
+    gCM[gHighlightedSourceID].markers.push(gCM[gHighlightedSourceID].markText(mark.start, mark.end, mark.class));
+  });
+
+  return true;
+}
+
 var extractThread;
-var updateCSV = () => {
-  //var fieldDef = getFieldDef();
+const updateCSV = () => {
   gCM[gResultingCSVInputID].setValue('');
   document.getElementById(gResultingCSVInputID + "Wait").style.display = 'inline';
   document.getElementById(gHighlightedSourceID + "Wait").style.display = 'inline';
-  // extract asynchronously to  allow interface changes to happen
+
   clearTimeout(extractThread);
   extractThread = setTimeout(() => {
     var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef());
+    gCM[gResultingCSVInputID].setValue(result.resultCSV);
+    gMarkers = result.markText;
+    gCM[gHighlightedSourceID].operation(updateMarkers);
     document.getElementById(gResultingCSVInputID + "Wait").style.display = 'none';
     document.getElementById(gHighlightedSourceID + "Wait").style.display = 'none';
-    gCM[gResultingCSVInputID].setValue(result.resultCSV);
-    //gCM[gHighlightedSourceID].setValue(result.highLightedSource);
-
-    // clear current marks
-    if (gCM[gHighlightedSourceID].markers)
-    {
-      gCM[gHighlightedSourceID].markers.forEach(function (mark) {
-        mark.clear();
-      });      
-    }
-    // apply new marks
-    gCM[gHighlightedSourceID].markers = [];
-    result.markText.forEach(function (mark) {
-      gCM[gHighlightedSourceID].markers.push(gCM[gHighlightedSourceID].markText(mark.start, mark.end, mark.class));
-    });
   }, 50);
 };
 

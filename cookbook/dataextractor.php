@@ -45,6 +45,7 @@ function DataExtractorBinder($m)
     //gSource = '';
     var gHighlightedSourceID = '$highlightedsource';
     var gResultingCSVInputID = '$resultingcsv';
+    var gMarkers = [];
 
     document.getElementById('".$inputsource."').addEventListener('change', loadSourceInput);
     document.getElementById('fieldDefsRowcopybutton').addEventListener('click', formatNewRow);
