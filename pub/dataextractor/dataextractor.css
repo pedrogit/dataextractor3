@@ -1,39 +1,12 @@
-xbody {
-  margin: 0px;
-  padding: 0px;
-  background-color: green;
-}
-
-xbutton {
-  margin-right: 5px;
-}
-
-#main {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
-
-#fieldDefsHeader,
-#fieldDefToolBar,
 .fieldDefsRow {
   display: flex;
   flex-direction: row;
   margin-top: 2px;
 }
 
-.boldHeader {
-  font-weight: bold;
-  color: white;
-}
-
-#dataDefinition,
-#dataSource {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-  max-width: 50%;
-  padding: 5px;
+.fieldDefsRow input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .expressionCol {
@@ -52,57 +25,13 @@ xbutton {
   width: 100%;
 }
 
-xp,
-xinput,
-xtextarea {
-  padding: 2px 5px;
-  margin: 0px;
-}
-
-xdiv,
-.fieldDefsRow input,
-xtextarea {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-#sourceinput {
-  min-height: 100px;
-  resize: vertical;
-}
-
-#resultingCSVinput,
-#sourceHighlighted {
+.cmeditor {
   height: 100%;
-  border: 1px solid;
 }
 
-#resultingCSVinput > .CodeMirror, 
-#sourceHighlighted > .CodeMirror {
+.cmeditor > .CodeMirror {
+  height: 100%;
   resize: vertical;
-  min-height: 200px;
 }
 
-#resultingCSVHeader, #sourceHeader, #sourceHighlightedHeader {
-  display: flex;
-  align-items: center;
-}
-
-#resultingCSVWait, #sourceHighlightedWait {
-  display: none;
-  margin-left:5px;
-  width: 15px;
-}
-
-.field1, .keyword {
-  background-color:red;
-}
-
-.cm-field1, .cm-keyword {
-  background-color:red;
-}
-
-.cm-field2 {
-  background-color:green;
-}
 

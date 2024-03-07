@@ -714,17 +714,25 @@ const updateMarkers = () => {
 var extractThread;
 const updateCSV = () => {
   gCM[gResultingCSVInputID].setValue('');
-  document.getElementById(gResultingCSVInputID + "Wait").style.display = 'inline';
-  document.getElementById(gHighlightedSourceID + "Wait").style.display = 'inline';
+  //document.getElementById(gResultingCSVInputID + "Wait").style.display = 'inline';
+  //document.getElementById(gHighlightedSourceID + "Wait").style.display = 'inline';
 
+  [...document.getElementsByClassName("de-processing-wheel")].forEach((element, index, array) => {
+    element.style.display = 'inline';
+  });
+  
   clearTimeout(extractThread);
   extractThread = setTimeout(() => {
+    gMarkers = [];
     var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef());
     gCM[gResultingCSVInputID].setValue(result.resultCSV);
     gMarkers = result.markText;
     gCM[gHighlightedSourceID].operation(updateMarkers);
-    document.getElementById(gResultingCSVInputID + "Wait").style.display = 'none';
-    document.getElementById(gHighlightedSourceID + "Wait").style.display = 'none';
+    //document.getElementById(gResultingCSVInputID + "Wait").style.display = 'none';
+    //document.getElementById(gHighlightedSourceID + "Wait").style.display = 'none';
+    [...document.getElementsByClassName("de-processing-wheel")].forEach((element, index, array) => {
+      element.style.display = 'none';
+    });
   }, 50);
 };
 

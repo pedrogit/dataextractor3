@@ -12,15 +12,23 @@ function LoadCMEditor($m)
   $args = ParseArgs($m[2]);
   $class = isset($args['class']) ? $args['class'] : "";
   $style = isset($args['style']) ? $args['style'] : "";
+  $cmstyle = isset($args['cmstyle']) ? $args['cmstyle'] : "";
   $mode = isset($args['mode']) ? '"'.$args['mode'].'"' : 'null';
 
   $HTMLHeaderFmt['cmeditor'] = '
     <script src="$FarmPubDirUrl/codemirror-5.65.16/lib/codemirror.js"></script>
-    <script src="$FarmPubDirUrl/codemirror-5.65.16/addon/mode/simple.js"></script>
-    <script xsrc="$FarmPubDirUrl/dataextractor/dataextractormode.js"></script>
     <script>var gCM = [];</script>
     <link rel="stylesheet" href="$FarmPubDirUrl/codemirror-5.65.16/lib/codemirror.css"/>
   ';
+
+  $HTMLHeaderFmt['cmeditor-'.$id] = '
+    <style type="text/css"><!--
+    #'.$id.' > .CodeMirror {
+      '.$cmstyle.'
+    }
+    --></style>
+  ';
+
   $HTMLFooterFmt['cmeditor-'.$id] = '<script type="text/javascript">
     gCM["'.$id.'"] = CodeMirror(document.getElementById("'.$id.'"), {
       mode:  '.$mode.',
@@ -28,7 +36,7 @@ function LoadCMEditor($m)
     });
   </script>';
   
-  return '<div id="'.$id.'" class="'.$class.'" style="'.$style.'"></div>';
+  return '<div id="'.$id.'" class="cmeditor '.$class.'" style="'.$style.'"></div>';
 }
 
 Markup('dataextractorbinder','directives','/\(:dataextractorbinder\\s?(.*?):\)/i', "DataExtractorBinder");
