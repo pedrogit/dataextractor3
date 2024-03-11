@@ -62,3 +62,5 @@ pub/dataextractor/dataextractor_01.js
 pub/dataextractor/dataextractor_02.js
 
 pub/dataextractor/dataextractormode.js
+
+.vscode/
