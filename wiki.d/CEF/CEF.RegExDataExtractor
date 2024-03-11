@@ -1,0 +1,348 @@
+version=pmwiki-2.3.22 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+author=PierreRacine
+charset=UTF-8
+csum=
+ctime=1701100560
+host=::1
+languages=fr,en
+name=CEF.RegExDataExtractor
+passwdattr=id:PierreRacine, id:@administrateurs
+passwdedit=id:PierreRacine, id:@administrateurs
+rev=111
+targets=
+text=(:noright:)(:noleft:)%0a%0a!!'''(:if userlang fr:)L'extracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a%0a(:if userlang fr:)Cette application web vous permet de bâtir et d'utiliser un extracteur de données à partir de fichiers textes, HTML, XML, etc... structurés ou semi-structurés, à l'aide de délimiteurs définis par des expressions régulières.(:if userlang en:)This web application allows you to build and use a data extractor from structured or semi-structured text, HTML, XML, etc. files, using delimiters defined with regular expressions.(:if:)%0a%0a(:if userlang fr:)Chaque valeur à extraire du fichier de données est identifiée à l'aide d'un délimiteur de début et un délimiteur de fin. Ces délimiteur sont définis à l'aide d'expressions régulières.(:if userlang en:)Each value to be extracted from the data file is identified using a starting delimiter and an ending delimiter. These delimiters are defined using regular expressions.(:if:)%0a%0a%0a!!!!'''(:if userlang fr:)Exemples d'application(:if userlang en:)Examples of applications(:if:)'''%0a%0a*(:if userlang fr:)Convertir les données XML du CV commun canadien (CVC) des chercheurs en fichiers CSV(:if userlang en:)Convert researchers XML Canadian Common CV (CCV) to CSV data(:if:)%0a*(:if userlang fr:)Extraire les publications de la page Google Scholar d'un chercheur sous la forme d'un fichier CSV(:if userlang en:)Extract publications from a researcher's Google Scholar page to a CSV file(:if:)%0a%0a!!!'''(:if userlang fr:)1'^[-ère-]^' étape - Collez ou importez votre fichier de données source(:if userlang en:)Step 1 - Paste or import your source data file(:if:)'''%0a(:if userlang fr:)Sous la forme d'un fichier HTML, XML ou n'importe quel format de fichier structuré ou semi-structuré.(:if userlang en:)It can be HTML, XML or any other structured or semi-structured format(:if:)%0a%0a%25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="de-processing-wheel" style="width:20px; border:0px; display:none;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a(:cmeditor sourceHighlighted style="border: 1px solid;" cmstyle="height:200px;":)%0a%0a%0a!!!'''(:if userlang fr:)2'^[-e-]^' étape - Définissez les délimiteurs de début et de fin(:if userlang en:)Step 2 - Define the starting and ending delimiters(:if:)'''%0a%0a(:div class='fieldDefsRow':)%0a(:div2 class=fieldNameCol:)'''(:if userlang fr:)Nom&nbsp;du&nbsp;champ(:if userlang en:)Field Name(:if:)'''%0a(:div2 class=expressionCol:)'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;début(:if userlang en:)Starting&nbsp;Delimiter(:if:)'''%0a(:div2 class=expressionCol:)'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;fin(:if userlang en:)Ending&nbsp;Delimiter(:if:)'''%0a(:div2 class=buttonCol:)%0a(:div2 class=buttonCol:)%0a(:div2end:)%0a(:divend:)%0a(:foxsection fieldDefsRow:)%0a(:div2 class=fieldNameCol:)(:input text name=fieldname class="inputbox changingfield":)%0a(:div2 class=expressionCol:)(:input text name=start class="inputbox changingfield":)%0a(:div2 class=expressionCol:)(:input text name=end class="inputbox changingfield":)%0a(:div2 class=buttonCol:)(:foxsectiondeletebutton class="inputbutton widebutton":)%0a(:div2 class=buttonCol:)(:foxsectionmoveicon class="inputbutton widebutton":)%0a(:div2end:)%0a(:foxsectionend:)%0a(:if userlang fr:)(:foxsectioncopybutton fieldDefsRow text="Ajouter un champ":)(:if userlang en:)(:foxsectioncopybutton fieldDefsRow text="Add a field" class=inputbuttonbig:)(:if:)%0a%0a!!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="de-processing-wheel" style="width:20px; border:0px; display:none;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a%0a(:cmeditor resultingCSVinput style="border: 1px solid;" cmstyle="height:200px;":)%0a%0a(:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted resultingcsv=resultingCSVinput :)%0a%0a%0a%0a%0a
+time=1709827893
+author:1709827893=PierreRacine
+diff:1709827893:1709827780:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted style="border: 1px solid;" cmstyle="height:200px;":)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted style="border: 1px solid;" cm-style="height:200px;":)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput style="border: 1px solid;" cmstyle="height:200px;":)%0a---%0a> (:cmeditor resultingCSVinput style="border: 1px solid;" cm-style="height:200px;":)%0a
+host:1709827893=::1
+author:1709827780=PierreRacine
+diff:1709827780:1709824959:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted style="border: 1px solid;" cm-style="height:200px;":)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted style="height:200px;border: 1px solid;":)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput style="border: 1px solid;" cm-style="height:200px;":)%0a---%0a> (:cmeditor resultingCSVinput style="height:200px;border: 1px solid;":)%0a
+host:1709827780=::1
+author:1709824959=PierreRacine
+diff:1709824959:1709824526:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted style="height:200px;border: 1px solid;":)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted style="height:100%25;border: 1px solid;":)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput style="height:200px;border: 1px solid;":)%0a---%0a> (:cmeditor resultingCSVinput style="height:100%25;border: 1px solid;":)%0a
+host:1709824959=::1
+author:1709824526=PierreRacine
+diff:1709824526:1709824477:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted style="height:100%25;border: 1px solid;":)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted style="height:100%25;":)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput style="height:100%25;border: 1px solid;":)%0a---%0a> (:cmeditor resultingCSVinput style="height:100%25;":)%0a
+host:1709824526=::1
+author:1709824477=PierreRacine
+diff:1709824477:1709824165:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted style="height:100%25;":)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted:)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput style="height:100%25;":)%0a---%0a> (:cmeditor resultingCSVinput:)%0a
+host:1709824477=::1
+author:1709824165=PierreRacine
+diff:1709824165:1709823834:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="de-processing-wheel" style="width:20px; border:0px; display:none;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="de-processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a42c42%0a%3c !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="de-processing-wheel" style="width:20px; border:0px; display:none;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="de-processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a
+host:1709824165=::1
+author:1709823834=PierreRacine
+diff:1709823834:1709823682:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="de-processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a42c42%0a%3c !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="de-processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a
+host:1709823834=::1
+author:1709823682=PierreRacine
+diff:1709823682:1709742444:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg class="processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg id="sourceHighlightedWait" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a42c42%0a%3c !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg class="processing-wheel" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg id="resultingCSVinputWait" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a
+host:1709823682=::1
+author:1709742444=PierreRacine
+diff:1709742444:1709741630:=42c42%0a%3c !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)''' (:html:)%3cimg id="resultingCSVinputWait" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)'''%0a
+host:1709742444=::1
+author:1709741630=PierreRacine
+diff:1709741630:1709741618:=
+host:1709741630=::1
+author:1709741618=PierreRacine
+diff:1709741618:1709741577:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg id="sourceHighlightedWait" style="width:20px;border:0px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg id="sourceHighlighted" style="width:20px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a
+host:1709741618=::1
+author:1709741577=PierreRacine
+diff:1709741577:1702582144:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:) (:html:)%3cimg id="sourceHighlighted" style="width:20px;" src=/pub/dataextractor/processing.gif>(:htmlend:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:)%0a
+host:1709741577=::1
+author:1702582144=PierreRacine
+diff:1702582144:1702579561:=19c19%0a%3c (:cmeditor sourceHighlighted:)%0a---%0a> (:cmeditor sourceHighlighted mode=dataextractor:)%0a
+host:1702582144=::1
+author:1702579561=PierreRacine
+diff:1702579561:1702492926:=19c19%0a%3c (:cmeditor sourceHighlighted mode=dataextractor:)%0a---%0a> (:cmeditor sourceHighlighted:)%0a
+host:1702579561=::1
+author:1702492926=PierreRacine
+diff:1702492926:1702486402:=19,21c19,21%0a%3c (:cmeditor sourceHighlighted:)%0a%3c %0a%3c %0a---%0a> (:cmeditor sourceHighlighted class=changingcodearea:)%0a> %0a> %0a44c44%0a%3c (:cmeditor resultingCSVinput:)%0a---%0a> (:cmeditor resultingCSVinput class=changingcodearea:)%0a
+host:1702492926=::1
+author:1702486402=PierreRacine
+diff:1702486402:1702486355:=20,21c20,21%0a%3c %0a%3c %0a---%0a> (:divend:)%0a> %0a44c44,45%0a%3c (:cmeditor resultingCSVinput class=changingcodearea:)%0a---%0a> (:div id=resultingCSVinput contentEditable="true" style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a> (:divend:)%0a
+host:1702486402=::1
+author:1702486355=PierreRacine
+diff:1702486355:1702484471:=19c19%0a%3c (:cmeditor sourceHighlighted class=changingcodearea:)%0a---%0a> (:cmeditor sourceHighlighted class=changingfield:)%0a
+host:1702486355=::1
+author:1702484471=PierreRacine
+diff:1702484471:1702483654:=19c19%0a%3c (:cmeditor sourceHighlighted class=changingfield:)%0a---%0a> (:cmeditor sourceHighlighted class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a
+host:1702484471=::1
+author:1702483654=PierreRacine
+diff:1702483654:1702479899:=19c19%0a%3c (:cmeditor sourceHighlighted class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a---%0a> (:cmeditor sourceHighlighted class=xchangingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a
+host:1702483654=::1
+author:1702479899=PierreRacine
+diff:1702479899:1702070802:=19c19%0a%3c (:cmeditor sourceHighlighted class=xchangingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a---%0a> (:cmeditor sourceHighlighted class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a
+host:1702479899=::1
+author:1702070802=admin
+diff:1702070802:1702070793:=3c3%0a%3c !!'''(:if userlang fr:)L'extracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a---%0a> !!'''(:if userlang fr:)L'xextracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a
+host:1702070802=::1
+author:1702070793=admin
+diff:1702070793:1702069858:=3c3%0a%3c !!'''(:if userlang fr:)L'xextracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a---%0a> !!'''(:if userlang fr:)L'extracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a
+host:1702070793=::1
+author:1702069858=admin
+diff:1702069858:1702067670:=2c2,3%0a%3c %0a---%0a> (:cmeditor toto:)%0a> %0a19c20%0a%3c (:cmeditor sourceHighlighted class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a---%0a> (:div id=sourceHighlighted contentEditable="true" class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a
+host:1702069858=::1
+author:1702067670=admin
+diff:1702067670:1702059050:=2,3d1%0a%3c (:cmeditor toto:)%0a%3c %0a
+host:1702067670=::1
+author:1702059050=admin
+diff:1702059050:1702054357:=9a10%0a> (:input e_textarea:)%0a
+host:1702059050=::1
+author:1702054357=admin
+diff:1702054357:1701889657:=10c10%0a%3c (:input e_textarea:)%0a---%0a> %0a
+host:1702054357=::1
+author:1701889657=admin
+diff:1701889657:1701882016:=19c19%0a%3c (:div id=sourceHighlighted contentEditable="true" class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; max-height:400px; resize:vertical;":)%0a---%0a> (:div id=sourceHighlighted contentEditable="true" class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a
+host:1701889657=::1
+author:1701882016=admin
+diff:1701882016:1701881874:=1c1%0a%3c (:noright:)(:noleft:)%0a---%0a> (:noright:)%0a
+host:1701882016=::1
+author:1701881874=admin
+diff:1701881874:1701881331:=47c47%0a%3c (:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted resultingcsv=resultingCSVinput :)%0a---%0a> (:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted resultingcsv=resultingCSV:)%0a
+host:1701881874=::1
+author:1701881331=admin
+diff:1701881331:1701881077:=47c47%0a%3c (:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted resultingcsv=resultingCSV:)%0a---%0a> (:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted :)%0a
+host:1701881331=::1
+author:1701881077=admin
+diff:1701881077:1701880406:=18a19%0a> %0a
+host:1701881077=::1
+author:1701880406=admin
+diff:1701880406:1701880082:=20c20%0a%3c (:div id=sourceHighlighted contentEditable="true" class=changingfield style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a---%0a> (:div id=sourceHighlighted contentEditable="true" style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a
+host:1701880406=::1
+author:1701880082=admin
+diff:1701880082:1701880022:=15c15%0a%3c !!!'''(:if userlang fr:)1'^[-ère-]^' étape - Collez ou importez votre fichier de données source(:if userlang en:)Step 1 - Paste or import your source data file(:if:)'''%0a---%0a> !!!'''(:if userlang fr:)1'^[-ère-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a
+host:1701880082=::1
+author:1701880022=admin
+diff:1701880022:1701879972:=45,46c45%0a%3c (:div id=resultingCSVinput contentEditable="true" style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a%3c (:divend:)%0a---%0a> (:input textarea id=resultingCSVinput:)%0a
+host:1701880022=::1
+author:1701879972=admin
+diff:1701879972:1701879529:=20c20%0a%3c (:div id=sourceHighlighted contentEditable="true" style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a---%0a> (:div id=sourceHighlighted style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a
+host:1701879972=::1
+author:1701879529=admin
+diff:1701879529:1701879492:=45c45%0a%3c (:input textarea id=resultingCSVinput:)%0a---%0a> (:input textarea name=resultingCSVinput:)%0a
+host:1701879529=::1
+author:1701879492=admin
+diff:1701879492:1701877574:=43,45d42%0a%3c !!!'''(:if userlang fr:)Voici le fichier CSV résultant(:if userlang en:)Here is the resulting CSV file(:if:)'''%0a%3c %0a%3c (:input textarea name=resultingCSVinput:)%0a
+host:1701879492=::1
+author:1701877574=admin
+diff:1701877574:1701877530:=
+host:1701877574=::1
+author:1701877530=admin
+diff:1701877530:1701877477:=41c41%0a%3c (:if userlang fr:)(:foxsectioncopybutton fieldDefsRow text="Ajouter un champ":)(:if userlang en:)(:foxsectioncopybutton fieldDefsRow text="Add a field" class=inputbuttonbig:)(:if:)%0a---%0a> (:if userlang fr:)(:foxsectioncopybutton fieldDefsRows text="Ajouter un champ":)(:if userlang en:)(:foxsectioncopybutton fieldDefsRows text="Add a field" class=inputbuttonbig:)(:if:)%0a
+host:1701877530=::1
+author:1701877477=admin
+diff:1701877477:1701877418:=33c33,34%0a%3c (:foxsection fieldDefsRow:)%0a---%0a> (:foxsection fieldDefsRows:)%0a> (:div class=fieldDefsRow:)%0a39a41%0a> (:divend:)%0a
+host:1701877477=::1
+author:1701877418=admin
+diff:1701877418:1701877382:=34d33%0a%3c (:div class=fieldDefsRow:)%0a41d39%0a%3c (:divend:)%0a
+host:1701877418=::1
+author:1701877382=admin
+diff:1701877382:1701876708:=33a34%0a> (:div class=fieldDefsRow:)%0a39a41%0a> (:divend:)%0a
+host:1701877382=::1
+author:1701876708=admin
+diff:1701876708:1701874214:=35,37c35,37%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname class="inputbox changingfield":)%0a%3c (:div2 class=expressionCol:)(:input text name=start class="inputbox changingfield":)%0a%3c (:div2 class=expressionCol:)(:input text name=end class="inputbox changingfield":)%0a---%0a> (:div2 class=fieldNameCol:)(:input text name=fieldname class="inputbox changingField":)%0a> (:div2 class=expressionCol:)(:input text name=start class="inputbox changingField":)%0a> (:div2 class=expressionCol:)(:input text name=end class="inputbox changingField":)%0a
+host:1701876708=::1
+author:1701874214=admin
+diff:1701874214:1701874176:=35,37c35,37%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname class="inputbox changingField":)%0a%3c (:div2 class=expressionCol:)(:input text name=start class="inputbox changingField":)%0a%3c (:div2 class=expressionCol:)(:input text name=end class="inputbox changingField":)%0a---%0a> (:div2 class=fieldNameCol:)(:input text name=fieldname class=changingField:)%0a> (:div2 class=expressionCol:)(:input text name=start class=changingField:)%0a> (:div2 class=expressionCol:)(:input text name=end class=changingField:)%0a
+host:1701874214=::1
+author:1701874176=admin
+diff:1701874176:1701872839:=25a26,34%0a> (:div2 class=fieldNameCol:)a%0a> (:div2 class=expressionCol:)b%0a> (:div2 class=expressionCol:)c%0a> (:div2 class=buttonCol:)d%0a> (:div2 class=buttonCol:)e%0a> (:div2end:)%0a> (:divend:)%0a> %0a> (:div class='fieldDefsRow':)%0a35,37c44,46%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname class=changingField:)%0a%3c (:div2 class=expressionCol:)(:input text name=start class=changingField:)%0a%3c (:div2 class=expressionCol:)(:input text name=end class=changingField:)%0a---%0a> (:div2 class=fieldNameCol:)(:input text name=fieldname:)%0a> (:div2 class=expressionCol:)(:input text name=start:)%0a> (:div2 class=expressionCol:)(:input text name=end:)%0a
+host:1701874176=::1
+author:1701872839=admin
+diff:1701872839:1701812380:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile class="inputbuttonbig":)%0a
+host:1701872839=::1
+author:1701812380=admin
+diff:1701812380:1701812338:=47,48c47,48%0a%3c (:div2 class=buttonCol:)(:foxsectiondeletebutton class="inputbutton widebutton":)%0a%3c (:div2 class=buttonCol:)(:foxsectionmoveicon class="inputbutton widebutton":)%0a---%0a> (:div2 class=buttonCol:)(:foxsectiondeletebutton class="widebutton":)%0a> (:div2 class=buttonCol:)(:foxsectionmoveicon class="widebutton":)%0a
+host:1701812380=::1
+author:1701812338=admin
+diff:1701812338:1701812059:=47,48c47,48%0a%3c (:div2 class=buttonCol:)(:foxsectiondeletebutton class="widebutton":)%0a%3c (:div2 class=buttonCol:)(:foxsectionmoveicon class="widebutton":)%0a---%0a> (:div2 class=buttonCol:)(:foxsectiondeletebutton:)%0a> (:div2 class=buttonCol:)(:foxsectionmoveicon:)%0a
+host:1701812338=::1
+author:1701812059=admin
+diff:1701812059:1701811854:=29,30c29,30%0a%3c (:div2 class=buttonCol:)d%0a%3c (:div2 class=buttonCol:)e%0a---%0a> (:div2 class=deleteButtonCol:)d%0a> (:div2 class=addBeforeButtonCol:)e%0a38,39c38,39%0a%3c (:div2 class=buttonCol:)%0a%3c (:div2 class=buttonCol:)%0a---%0a> (:div2 class=deleteButtonCol:)%0a> (:div2 class=addBeforeButtonCol:)%0a47,48c47,48%0a%3c (:div2 class=buttonCol:)(:foxsectiondeletebutton:)%0a%3c (:div2 class=buttonCol:)(:foxsectionmoveicon:)%0a---%0a> (:div2 class=deleteButtonCol:)(:foxsectiondeletebutton:)%0a> (:div2 class=addBeforeButtonCol:)(:foxsectionmoveicon:)%0a
+host:1701812059=::1
+author:1701811854=admin
+diff:1701811854:1701811633:=44,48c44,48%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname:)%0a%3c (:div2 class=expressionCol:)(:input text name=start:)%0a%3c (:div2 class=expressionCol:)(:input text name=end:)%0a%3c (:div2 class=deleteButtonCol:)(:foxsectiondeletebutton:)%0a%3c (:div2 class=addBeforeButtonCol:)(:foxsectionmoveicon:)%0a---%0a> (:div2 class=fieldNameCol:)(:input text name=fieldname class=inputbuttonbig:)%0a> (:div2 class=expressionCol:)(:input text name=start class=inputbuttonbig:)%0a> (:div2 class=expressionCol:)(:input text name=end class=inputbuttonbig:)%0a> (:div2 class=deleteButtonCol:)(:foxsectiondeletebutton class=inputbuttonbig:)%0a> (:div2 class=addBeforeButtonCol:)(:foxsectionmoveicon class=inputbuttonbig:)%0a52c52%0a%3c (:if userlang fr:)(:foxsectioncopybutton fieldDefsRows text="Ajouter un champ":)(:if userlang en:)(:foxsectioncopybutton fieldDefsRows text="Add a field" class=inputbuttonbig:)(:if:)%0a---%0a> (:if userlang fr:)(:foxsectioncopybutton fieldDefsRows text="Ajouter un champ" class=inputbuttonbig:)(:if userlang en:)(:foxsectioncopybutton fieldDefsRows text="Add a field" class=inputbuttonbig:)(:if:)%0a
+host:1701811854=::1
+author:1701811633=admin
+diff:1701811633:1701462046:=
+host:1701811633=::1
+author:1701462046=PierreRacine
+diff:1701462046:1701461886:=24,32d23%0a%3c %0a%3c (:div class='fieldDefsRow':)%0a%3c (:div2 class=fieldNameCol:)a%0a%3c (:div2 class=expressionCol:)b%0a%3c (:div2 class=expressionCol:)c%0a%3c (:div2 class=deleteButtonCol:)d%0a%3c (:div2 class=addBeforeButtonCol:)e%0a%3c (:div2end:)%0a%3c (:divend:)%0a
+host:1701462046=::1
+author:1701461886=PierreRacine
+diff:1701461886:1701461747:=29,30d28%0a%3c (:div2 class=deleteButtonCol:)%0a%3c (:div2 class=addBeforeButtonCol:)%0a
+host:1701461886=::1
+author:1701461747=PierreRacine
+diff:1701461747:1701461152:=41c41%0a%3c (:if userlang fr:)(:foxsectioncopybutton fieldDefsRows text="Ajouter un champ" class=inputbuttonbig:)(:if userlang en:)(:foxsectioncopybutton fieldDefsRows text="Add a field" class=inputbuttonbig:)(:if:)%0a---%0a> (:foxsectioncopybutton fieldDefsRows class=inputbuttonbig:)%0a
+host:1701461747=::1
+author:1701461152=PierreRacine
+diff:1701461152:1701461130:=26,28c26,28%0a%3c (:div2 class=fieldNameCol:)'''(:if userlang fr:)Nom&nbsp;du&nbsp;champ(:if userlang en:)Field Name(:if:)'''%0a%3c (:div2 class=expressionCol:)'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;début(:if userlang en:)Starting&nbsp;Delimiter(:if:)'''%0a%3c (:div2 class=expressionCol:)'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;fin(:if userlang en:)Ending&nbsp;Delimiter(:if:)'''%0a---%0a> (:div2 class=fieldNameCol:)%25red%25'''(:if userlang fr:)Nom&nbsp;du&nbsp;champ(:if userlang en:)Field Name(:if:)'''%0a> (:div2 class=expressionCol:)%25red%25'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;début(:if userlang en:)Starting&nbsp;Delimiter(:if:)'''%0a> (:div2 class=expressionCol:)%25red%25'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;fin(:if userlang en:)Ending&nbsp;Delimiter(:if:)'''%0a
+host:1701461152=::1
+author:1701461130=PierreRacine
+diff:1701461130:1701460902:=41,43c41%0a%3c (:foxsectioncopybutton fieldDefsRows class=inputbuttonbig:)%0a%3c %0a%3c %0a---%0a> (:foxsectioncopybutton fieldDefsRows:)%0a
+host:1701461130=::1
+author:1701460902=PierreRacine
+diff:1701460902:1701460802:=26,28c26,28%0a%3c (:div2 class=fieldNameCol:)%25red%25'''(:if userlang fr:)Nom&nbsp;du&nbsp;champ(:if userlang en:)Field Name(:if:)'''%0a%3c (:div2 class=expressionCol:)%25red%25'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;début(:if userlang en:)Starting&nbsp;Delimiter(:if:)'''%0a%3c (:div2 class=expressionCol:)%25red%25'''(:if userlang fr:)Délimiteur&nbsp;de&nbsp;fin(:if userlang en:)Ending&nbsp;Delimiter(:if:)'''%0a---%0a> (:div2 class=fieldNameCol:)Nom&nbsp;de&nbsp;la&nbsp;variable%0a> (:div2 class=expressionCol:)Délimiteur&nbsp;de&nbsp;début%0a> (:div2 class=expressionCol:)Délimiteur&nbsp;de&nbsp;fin%0a
+host:1701460902=::1
+author:1701460802=PierreRacine
+diff:1701460802:1701460777:=38d37%0a%3c (:div2end:)%0a
+host:1701460802=::1
+author:1701460777=PierreRacine
+diff:1701460777:1701460748:=26,28c26,28%0a%3c (:div2 class=fieldNameCol:)Nom&nbsp;de&nbsp;la&nbsp;variable%0a%3c (:div2 class=expressionCol:)Délimiteur&nbsp;de&nbsp;début%0a%3c (:div2 class=expressionCol:)Délimiteur&nbsp;de&nbsp;fin%0a---%0a> (:div2 class=fieldNameCol:)Nom de la variable%0a> (:div2 class=expressionCol:)Délimiteur de début%0a> (:div2 class=expressionCol:)Délimiteur de fin%0a
+host:1701460777=::1
+author:1701460748=PierreRacine
+diff:1701460748:1701460722:=33,35c33,35%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname class=inputbuttonbig:)%0a%3c (:div2 class=expressionCol:)(:input text name=start class=inputbuttonbig:)%0a%3c (:div2 class=expressionCol:)(:input text name=end class=inputbuttonbig:)%0a---%0a> (:div2 class=fieldNameCol:)(:input text name=fieldname class=fieldNameCol:)%0a> (:div2 class=expressionCol:)(:input text name=start class=expressionCol:)%0a> (:div2 class=expressionCol:)(:input text name=end class=expressionCol:)%0a
+host:1701460748=::1
+author:1701460722=PierreRacine
+diff:1701460722:1701460401:=33,37c33%0a%3c (:div2 class=fieldNameCol:)(:input text name=fieldname class=fieldNameCol:)%0a%3c (:div2 class=expressionCol:)(:input text name=start class=expressionCol:)%0a%3c (:div2 class=expressionCol:)(:input text name=end class=expressionCol:)%0a%3c (:div2 class=deleteButtonCol:)(:foxsectiondeletebutton class=inputbuttonbig:)%0a%3c (:div2 class=addBeforeButtonCol:)(:foxsectionmoveicon class=inputbuttonbig:)%0a---%0a> (:input text name=fieldname class=fieldNameCol:)(:input text name=start class=expressionCol:)(:input text name=end class=expressionCol:)(:foxsectiondeletebutton:)(:foxsectionmoveicon:)%0a
+host:1701460722=::1
+author:1701460401=PierreRacine
+diff:1701460401:1701460362:=26,29c26,28%0a%3c (:div2 class=fieldNameCol:)Nom de la variable%0a%3c (:div2 class=expressionCol:)Délimiteur de début%0a%3c (:div2 class=expressionCol:)Délimiteur de fin%0a%3c (:div2end:)%0a---%0a> (:div class=fieldNameCol:)Nom de la variable%0a> (:div class=expressionCol:)Délimiteur de début%0a> (:div class=expressionCol:)Délimiteur de fin%0a
+host:1701460401=::1
+author:1701460362=PierreRacine
+diff:1701460362:1701460358:=
+host:1701460362=::1
+author:1701460358=PierreRacine
+diff:1701460358:1701460193:=
+host:1701460358=::1
+author:1701460193=PierreRacine
+diff:1701460193:1701459878:=31c31%0a%3c (:div class=fieldDefsRow:)%0a---%0a> (:div class='fieldDefsRow':)%0a
+host:1701460193=::1
+author:1701459878=PierreRacine
+diff:1701459878:1701459615:=
+host:1701459878=::1
+author:1701459615=PierreRacine
+diff:1701459615:1701459406:=26,28c26,28%0a%3c (:div class=fieldNameCol:)Nom de la variable%0a%3c (:div class=expressionCol:)Délimiteur de début%0a%3c (:div class=expressionCol:)Délimiteur de fin%0a---%0a> (:div style="display: inline-block":)Nom de la variable%0a> (:div style="display: inline-block":)Délimiteur de début%0a> (:div style="display: inline-block":)Délimiteur de fin%0a32c32%0a%3c (:input text name=fieldname class=fieldNameCol:)(:input text name=start class=expressionCol:)(:input text name=end class=expressionCol:)(:foxsectiondeletebutton:)(:foxsectionmoveicon:)%0a---%0a> (:input text name=fieldname:)(:input text name=start:)(:input text name=end:)(:foxsectiondeletebutton:)(:foxsectionmoveicon:)%0a
+host:1701459615=::1
+author:1701459406=PierreRacine
+diff:1701459406:1701459349:=26,28c26,28%0a%3c (:div style="display: inline-block":)Nom de la variable%0a%3c (:div style="display: inline-block":)Délimiteur de début%0a%3c (:div style="display: inline-block":)Délimiteur de fin%0a---%0a> (:div:)Nom de la variable%0a> (:div:)Délimiteur de début%0a> (:div:)Délimiteur de fin%0a
+host:1701459406=::1
+author:1701459349=PierreRacine
+diff:1701459349:1701459205:=26a27%0a> (:divend:)%0a27a29%0a> (:divend:)%0a28a31%0a> (:divend:)%0a
+host:1701459349=::1
+author:1701459205=PierreRacine
+diff:1701459205:1701459151:=26,31c26%0a%3c (:div:)Nom de la variable%0a%3c (:divend:)%0a%3c (:div:)Délimiteur de début%0a%3c (:divend:)%0a%3c (:div:)Délimiteur de fin%0a%3c (:divend:)%0a---%0a> (:div:)Nom de la variable(:divend:)(:div:)Délimiteur de début(:divend:)(:div:)Délimiteur de fin(:divend:)%0a
+host:1701459205=::1
+author:1701459151=PierreRacine
+diff:1701459151:1701458699:=24a25,26%0a> %0a> (:foxsection fieldDefsRows:)%0a26c28%0a%3c (:div:)Nom de la variable(:divend:)(:div:)Délimiteur de début(:divend:)(:div:)Délimiteur de fin(:divend:)%0a---%0a> (:input text name=fieldname_fsnumber_:)(:input text name=fieldname_fsnumber_:)%0a28,31d29%0a%3c (:foxsection fieldDefsRows:)%0a%3c (:div class='fieldDefsRow':)%0a%3c (:input text name=fieldname:)(:input text name=start:)(:input text name=end:)(:foxsectiondeletebutton:)(:foxsectionmoveicon:)%0a%3c (:divend:)%0a33d30%0a%3c (:foxsectioncopybutton fieldDefsRows:)%0a
+host:1701459151=::1
+author:1701458699=PierreRacine
+diff:1701458699:1701458094:=24d23%0a%3c %0a
+host:1701458699=::1
+author:1701458094=PierreRacine
+diff:1701458094:1701458047:=25c25%0a%3c (:foxsection fieldDefsRows:)%0a---%0a> (:foxsection:)%0a
+host:1701458094=::1
+author:1701458047=PierreRacine
+diff:1701458047:1701457966:=25,26c25%0a%3c (:foxsection:)%0a%3c (:div class='fieldDefsRow':)%0a---%0a> %0a28,29c27%0a%3c (:divend:)%0a%3c (:foxsectionend:)%0a---%0a> %0a
+host:1701458047=::1
+author:1701457966=PierreRacine
+diff:1701457966:1701457542:=24,26d23%0a%3c %0a%3c %0a%3c (:input text name=fieldname_fsnumber_:)(:input text name=fieldname_fsnumber_:)%0a
+host:1701457966=::1
+author:1701457542=PierreRacine
+diff:1701457542:1701457509:=9,11c9,11%0a%3c !!!!'''(:if userlang fr:)Exemples d'application(:if userlang en:)Examples of applications(:if:)'''%0a%3c %0a%3c %0a---%0a> !!!'''(:if userlang fr:)Exemples d'application(:if userlang en:)Examples of applications(:if:)'''%0a> %0a> %0a15c15%0a%3c !!!'''(:if userlang fr:)1'^[-ère-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a---%0a> !!'''(:if userlang fr:)1'^[-ère-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a23c23%0a%3c !!!'''(:if userlang fr:)2'^[-e-]^' étape - Définissez les délimiteurs de début et de fin(:if userlang en:)Step 2 - Define the starting and ending delimiters(:if:)'''%0a---%0a> !!'''(:if userlang fr:)2'^[-e-]^' étape - Définissez les délimiteurs de début et de fin(:if userlang en:)Step 2 - Define the starting and ending delimiters(:if:)'''%0a
+host:1701457542=::1
+author:1701457509=PierreRacine
+diff:1701457509:1701457107:=22,23d21%0a%3c %0a%3c !!'''(:if userlang fr:)2'^[-e-]^' étape - Définissez les délimiteurs de début et de fin(:if userlang en:)Step 2 - Define the starting and ending delimiters(:if:)'''%0a
+host:1701457509=::1
+author:1701457107=PierreRacine
+diff:1701457107:1701454652:=
+host:1701457107=::1
+author:1701454652=PierreRacine
+diff:1701454652:1701449657:=23c23%0a%3c (:dataextractorbinder inputsource=sourcefile highlightedsource=sourceHighlighted :)%0a---%0a> (:dataextratorbinder inputsource=sourcefile highlightedsource=sourceHighlighted :)%0a
+host:1701454652=::1
+author:1701449657=PierreRacine
+diff:1701449657:1701449506:=22,23d21%0a%3c %0a%3c (:dataextratorbinder inputsource=sourcefile highlightedsource=sourceHighlighted :)%0a
+host:1701449657=::1
+author:1701449506=PierreRacine
+diff:1701449506:1701449469:=20c20%0a%3c (:div id=sourceHighlighted style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white; min-height:200px; resize:vertical;":)%0a---%0a> (:div id=sourceHighlighted style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white;":)%0a
+host:1701449506=::1
+author:1701449469=PierreRacine
+diff:1701449469:1701448829:=20,21c20%0a%3c (:div id=sourceHighlighted style="height:100%25; overflow-y:scroll; border:1px solid; padding:3px; font-family:monospace; background-color:white;":)%0a%3c (:divend:)%0a---%0a> (:dataextractor_highlightedsource dep=sourcefile:)%0a
+host:1701449469=::1
+author:1701448829=PierreRacine
+diff:1701448829:1701448817:=19d18%0a%3c %0a
+host:1701448829=::1
+author:1701448817=PierreRacine
+diff:1701448817:1701292202:=19d18%0a%3c (:dataextractor_highlightedsource dep=sourcefile:)%0a
+host:1701448817=::1
+author:1701292202=PierreRacine
+diff:1701292202:1701289128:=
+host:1701292202=::1
+author:1701289128=PierreRacine
+diff:1701289128:1701289091:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile name=sourcefile class="inputbuttonbig":)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile class="inputbuttonbig":)%0a
+host:1701289128=::1
+author:1701289091=PierreRacine
+diff:1701289091:1701289053:=15c15%0a%3c !!'''(:if userlang fr:)1'^[-ère-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a---%0a> !!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a
+host:1701289091=::1
+author:1701289053=PierreRacine
+diff:1701289053:1701116945:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile class="inputbuttonbig":)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Séletionnez class="inputbuttonbig":)%0a
+host:1701289053=::1
+author:1701116945=PierreRacine
+diff:1701116945:1701116674:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Séletionnez class="inputbuttonbig":)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Toto class="inputbuttonbig":)%0a
+host:1701116945=::1
+author:1701116674=PierreRacine
+diff:1701116674:1701116159:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Toto class="inputbuttonbig":)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Toto:)%0a
+host:1701116674=::1
+author:1701116159=PierreRacine
+diff:1701116159:1701115883:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile value=Toto:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile:)%0a
+host:1701116159=::1
+author:1701115883=PierreRacine
+diff:1701115883:1701115672:=18c18,20%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:input stylablefile:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)'''(:html:)%0a> %0a> (:input stylablefile:)%0a
+host:1701115883=::1
+author:1701115672=PierreRacine
+diff:1701115672:1701111641:=19,20c19,43%0a%3c %0a%3c (:input stylablefile:)%0a---%0a> %3clabel for=upfile class="inputbuttonbig small">%0a> %3cscript>%0a> function showname(ev) {%0a>   var name = document.getElementById('upfile');%0a>   document.getElementById("file-selected").innerHTML = name.files.item(0).name;%0a> %0a>   var file = ev.target.files[0];%0a>   if (!file) {%0a>     return;%0a>   }%0a>   var reader = new FileReader();%0a>   reader.onload = function (input) {%0a>     document.getElementById('sourceinput').value = input.target.result;%0a>     ev.target.value = '';%0a>     //prepareExtract();%0a>   };%0a>   reader.readAsText(file);%0a> }%0a> %3c/script>%0a> (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a> %3c/label>&nbsp;%3cspan id="file-selected">%0a> (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60" onchange="showname(event)">(:htmlend:)%0a> %0a> (:input file upfile "label" class="inputbuttonbig":) %0a> %0a
+host:1701115672=::1
+author:1701111641=PierreRacine
+diff:1701111641:1701111452:=42c42%0a%3c (:input file upfile "label" class="inputbuttonbig":) %0a---%0a> (:input file name "label" class="inputbuttonbig":) %0a
+host:1701111641=::1
+author:1701111452=PierreRacine
+diff:1701111452:1701111403:=42c42%0a%3c (:input file name "label" class="inputbuttonbig":) %0a---%0a> (:input file name "label":) %0a
+host:1701111452=::1
+author:1701111403=PierreRacine
+diff:1701111403:1701105046:=42c42%0a%3c (:input file name "label":) %0a---%0a> (:input textarea id="sourceinput" width=100:)%0a
+host:1701111403=::1
+author:1701105046=PierreRacine
+diff:1701105046:1701104820:=42c42%0a%3c (:input textarea id="sourceinput" width=100:)%0a---%0a> (:input textarea id="sourceinput" style="width:100%25":)%0a
+host:1701105046=::1
+author:1701104820=PierreRacine
+diff:1701104820:1701104730:=42c42%0a%3c (:input textarea id="sourceinput" style="width:100%25":)%0a---%0a> (:input textarea id="sourceinput":)%0a
+host:1701104820=::1
+author:1701104730=PierreRacine
+diff:1701104730:1701104305:=21c21%0a%3c function showname(ev) {%0a---%0a> function showname() {%0a24,35d23%0a%3c %0a%3c   var file = ev.target.files[0];%0a%3c   if (!file) {%0a%3c     return;%0a%3c   }%0a%3c   var reader = new FileReader();%0a%3c   reader.onload = function (input) {%0a%3c     document.getElementById('sourceinput').value = input.target.result;%0a%3c     ev.target.value = '';%0a%3c     //prepareExtract();%0a%3c   };%0a%3c   reader.readAsText(file);%0a36a25,47%0a> var area = document.getElementById("description");%0a> var message = document.getElementById("description-length");%0a> var maxLength = 300;%0a> var checkLength = function() {%0a>     if(area.value.length %3c= maxLength) {%0a>         message.innerHTML = (maxLength-area.value.length);%0a>     }%0a> }%0a> setInterval(checkLength, 300);%0a> %0a> var loadSourceInput = (e) => {%0a>   var file = e.target.files[0];%0a>   if (!file) {%0a>     return;%0a>   }%0a>   var reader = new FileReader();%0a>   reader.onload = function (input) {%0a>     document.getElementById('sourceinput').value = input.target.result;%0a>     e.target.value = '';%0a>     prepareExtract();%0a>   };%0a>   reader.readAsText(file);%0a> }%0a40c51%0a%3c (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60" onchange="showname(event)">(:htmlend:)%0a---%0a> (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60" onchange="showname()">(:htmlend:)%0a
+host:1701104730=::1
+author:1701104305=PierreRacine
+diff:1701104305:1701104277:=49c49%0a%3c (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a---%0a> (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)%0a
+host:1701104305=::1
+author:1701104277=PierreRacine
+diff:1701104277:1701104144:=49c49%0a%3c (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)%0a---%0a> (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)c%0a
+host:1701104277=::1
+author:1701104144=PierreRacine
+diff:1701104144:1701104090:=49c49%0a%3c (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)c%0a---%0a> (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a53c53%0a%3c (:input textarea id="sourceinput":)%0a---%0a> %3cinput textarea id="sourceinput">%0a
+host:1701104144=::1
+author:1701104090=PierreRacine
+diff:1701104090:1701102953:=18,53c18,19%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)'''(:html:)%0a%3c %3clabel for=upfile class="inputbuttonbig small">%0a%3c %3cscript>%0a%3c function showname() {%0a%3c   var name = document.getElementById('upfile');%0a%3c   document.getElementById("file-selected").innerHTML = name.files.item(0).name;%0a%3c }%0a%3c var area = document.getElementById("description");%0a%3c var message = document.getElementById("description-length");%0a%3c var maxLength = 300;%0a%3c var checkLength = function() {%0a%3c     if(area.value.length %3c= maxLength) {%0a%3c         message.innerHTML = (maxLength-area.value.length);%0a%3c     }%0a%3c }%0a%3c setInterval(checkLength, 300);%0a%3c %0a%3c var loadSourceInput = (e) => {%0a%3c   var file = e.target.files[0];%0a%3c   if (!file) {%0a%3c     return;%0a%3c   }%0a%3c   var reader = new FileReader();%0a%3c   reader.onload = function (input) {%0a%3c     document.getElementById('sourceinput').value = input.target.result;%0a%3c     e.target.value = '';%0a%3c     prepareExtract();%0a%3c   };%0a%3c   reader.readAsText(file);%0a%3c }%0a%3c %3c/script>%0a%3c (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a%3c %3c/label>&nbsp;%3cspan id="file-selected">%0a%3c (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60" onchange="showname()">(:htmlend:)%0a%3c %0a%3c %3cinput textarea id="sourceinput">%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:dataextractorsourcedata:)%0a> %0a
+host:1701104090=::1
+author:1701102953=PierreRacine
+diff:1701102953:1701102946:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)''' (:dataextractorsourcedata:)%0a---%0a> %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)'''(:dataextractorsourcedata:)%0a
+host:1701102953=::1
+author:1701102946=PierreRacine
+diff:1701102946:1701102922:=18c18%0a%3c %25red%25'''(:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)'''(:dataextractorsourcedata:)%0a---%0a> (:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)(:dataextractorsourcedata:)%0a
+host:1701102946=::1
+author:1701102922=PierreRacine
+diff:1701102922:1701102588:=15c15%0a%3c !!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données source(:if userlang en:)Step 1 - Import your source data file(:if:)'''%0a---%0a> !!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données(:if userlang en:)Step 1 - Import your data file(:if:)'''%0a18c18,38%0a%3c (:if userlang fr:)Fichier de données source(:if userlang en:)Source Data File(:if:)(:dataextractorsourcedata:)%0a---%0a> %0a> (:html:)%0a> %3clabel for=upfile class="inputbuttonbig small">%0a> %3cscript>%0a> function showname() {%0a>   var name = document.getElementById('upfile');%0a>   document.getElementById("file-selected").innerHTML = name.files.item(0).name;%0a> }%0a> var area = document.getElementById("description");%0a> var message = document.getElementById("description-length");%0a> var maxLength = 300;%0a> var checkLength = function() {%0a>     if(area.value.length %3c= maxLength) {%0a>         message.innerHTML = (maxLength-area.value.length);%0a>     }%0a> }%0a> setInterval(checkLength, 300);%0a> %3c/script>%0a> (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a> %3c/label>&nbsp;%3cspan id="file-selected">%0a> (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60"  onchange="showname()">(:htmlend:)(:input hidden upfile_name "{$$nom}_{$AccessCode}.jpg":)(:if foxerror soumissionphotoinstagram upfile_ext :) %25red%25'''(:if2 userlang fr:)ERREUR: Seulement les .jpg sont permis. Pas les .(:if2 userlang en:)ERROR: Only .jpg are permitted. Not .(:if2end:)(:foxmessage soumissionphotoinstagram upfile_ext :)'''%25%25(:ifend:)(:if foxerror soumissionphotoinstagram upfile_size :). %25red%25'''(:if2 userlang fr:)ERREUR: Le fichier doit faire moins de 500 kilobytes (512000 bytes). Le fichier sélectionné fait (:if2 userlang en:)ERROR: File must be less than 500 kilobytes (512000 bytes). The selected file is (:if2end:) (:foxmessage soumissionphotoinstagram upfile_size :) bytes'''%25%25(:ifend:)%0a
+host:1701102922=::1
+author:1701102588=PierreRacine
+diff:1701102588:1701102015:=1d0%0a%3c (:noright:)%0a15c14,15%0a%3c !!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données(:if userlang en:)Step 1 - Import your data file(:if:)'''%0a---%0a> %0a> !!!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données(:if userlang en:)Step 1 - Import your data file(:if:)'''%0a19c19,22%0a%3c (:html:)%0a---%0a> (:div1 class=forminput:)%0a> (:div2 class=formlabel:)%25red%25'''(:if userlang fr:)Sélectionnez votre photo à téléverser(:if userlang en:)Select your photo to upload(:if:)'''%25%25%0a> (:div2end:)%0a> (:div3 class=formfield:)(:html:)%0a39c42,43%0a%3c %0a---%0a> (:div3end:)%0a> (:div1end:)%0a
+host:1701102588=::1
+author:1701102015=PierreRacine
+diff:1701102015:1701101832:=17,45d16%0a%3c %0a%3c %0a%3c (:div1 class=forminput:)%0a%3c (:div2 class=formlabel:)%25red%25'''(:if userlang fr:)Sélectionnez votre photo à téléverser(:if userlang en:)Select your photo to upload(:if:)'''%25%25%0a%3c (:div2end:)%0a%3c (:div3 class=formfield:)(:html:)%0a%3c %3clabel for=upfile class="inputbuttonbig small">%0a%3c %3cscript>%0a%3c function showname() {%0a%3c   var name = document.getElementById('upfile');%0a%3c   document.getElementById("file-selected").innerHTML = name.files.item(0).name;%0a%3c }%0a%3c var area = document.getElementById("description");%0a%3c var message = document.getElementById("description-length");%0a%3c var maxLength = 300;%0a%3c var checkLength = function() {%0a%3c     if(area.value.length %3c= maxLength) {%0a%3c         message.innerHTML = (maxLength-area.value.length);%0a%3c     }%0a%3c }%0a%3c setInterval(checkLength, 300);%0a%3c %3c/script>%0a%3c (:htmlend:)(:if userlang fr:)Sélectionner(:if userlang en:)Select(:if:)(:html:)%0a%3c %3c/label>&nbsp;%3cspan id="file-selected">%0a%3c (:htmlend:)(:if userlang fr:)Aucun fichier sélectionné(:if userlang en:)No file selected(:if:)(:html:)%3c/span>%3cinput type="file" name="upfile" id="upfile" class="inputbuttonhidden" size="60"  onchange="showname()">(:htmlend:)(:input hidden upfile_name "{$$nom}_{$AccessCode}.jpg":)(:if foxerror soumissionphotoinstagram upfile_ext :) %25red%25'''(:if2 userlang fr:)ERREUR: Seulement les .jpg sont permis. Pas les .(:if2 userlang en:)ERROR: Only .jpg are permitted. Not .(:if2end:)(:foxmessage soumissionphotoinstagram upfile_ext :)'''%25%25(:ifend:)(:if foxerror soumissionphotoinstagram upfile_size :). %25red%25'''(:if2 userlang fr:)ERREUR: Le fichier doit faire moins de 500 kilobytes (512000 bytes). Le fichier sélectionné fait (:if2 userlang en:)ERROR: File must be less than 500 kilobytes (512000 bytes). The selected file is (:if2end:) (:foxmessage soumissionphotoinstagram upfile_size :) bytes'''%25%25(:ifend:)%0a%3c (:div3end:)%0a%3c (:div1end:)%0a%3c %0a%3c %0a
+host:1701102015=::1
+author:1701101832=PierreRacine
+diff:1701101832:1701101566:=13,17d12%0a%3c %0a%3c %0a%3c !!!'''(:if userlang fr:)1'^[-ere-]^' étape - Importer votre fichier de données(:if userlang en:)Step 1 - Import your data file(:if:)'''%0a%3c (:if userlang fr:)Sous la forme d'un fichier HTML, XML ou n'importe quel format de fichier structuré ou semi-structuré.(:if userlang en:)It can be HTML, XML or any other structured or semi-structured format(:if:)%0a%3c %0a
+host:1701101832=::1
+author:1701101566=PierreRacine
+diff:1701101566:1701100560:=6,12d5%0a%3c %0a%3c %0a%3c !!!'''(:if userlang fr:)Exemples d'application(:if userlang en:)Examples of applications(:if:)'''%0a%3c %0a%3c %0a%3c *(:if userlang fr:)Convertir les données XML du CV commun canadien (CVC) des chercheurs en fichiers CSV(:if userlang en:)Convert researchers XML Canadian Common CV (CCV) to CSV data(:if:)%0a%3c *(:if userlang fr:)Extraire les publications de la page Google Scholar d'un chercheur sous la forme d'un fichier CSV(:if userlang en:)Extract publications from a researcher's Google Scholar page to a CSV file(:if:)%0a
+host:1701101566=::1
+author:1701100560=PierreRacine
+diff:1701100560:1701100560:=1,7d0%0a%3c !!'''(:if userlang fr:)L'extracteur de données RegEx du CEF(:if userlang en:)CEF RegEx Data Extractor(:if:)'''%0a%3c %0a%3c (:if userlang fr:)Cette application web vous permet de bâtir et d'utiliser un extracteur de données à partir de fichiers textes, HTML, XML, etc... structurés ou semi-structurés, à l'aide de délimiteurs définis par des expressions régulières.(:if userlang en:)This web application allows you to build and use a data extractor from structured or semi-structured text, HTML, XML, etc. files, using delimiters defined with regular expressions.(:if:)%0a%3c %0a%3c (:if userlang fr:)Chaque valeur à extraire du fichier de données est identifiée à l'aide d'un délimiteur de début et un délimiteur de fin. Ces délimiteur sont définis à l'aide d'expressions régulières.(:if userlang en:)Each value to be extracted from the data file is identified using a starting delimiter and an ending delimiter. These delimiters are defined using regular expressions.(:if:)%0a%3c %0a%3c %0a
+host:1701100560=::1
