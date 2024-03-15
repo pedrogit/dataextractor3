@@ -54,24 +54,22 @@ function DataExtractorBinder($m)
     var gHighlightedSourceID = '$highlightedsource';
     var gResultingCSVInputID = '$resultingcsv';
     var gMarkers = [];
+    var gURL = window.location.href;
 
     document.getElementById('".$inputsource."').addEventListener('change', loadSourceInput);
     document.getElementById('fieldDefsRowcopybutton').addEventListener('click', formatNewRow);
     formatNewRow();
-    
-    // add oninput listener to all input changing fields
-    /*var changingfields = document.getElementsByClassName('changingfield');
-    Array.from(changingfields).forEach(function (element) {
-      element.addEventListener('input', handleFieldChange);
-    });
-    */
+    setFieldsFromURL();
 
     document.getElementById('section-list').addEventListener('sectionchange', handleFieldChange);
+    document.getElementById('save-csv').addEventListener('click', saveCSV);
 
     gCM[gHighlightedSourceID].on('change', updateCSV);
   </script>");
   
-  SDV($HTMLHeaderFmt['dataextractor'], "<script type='text/javascript' src='pub/dataextractor/dataextractor.js'></script>
+  SDV($HTMLHeaderFmt['dataextractor'], "
+  <script type='text/javascript' src='pub/dataextractor/dataextractor.js'></script>
+  <script type='text/javascript' src='pub/dataextractor/dataextractor_tests.js'></script>
   <link rel='stylesheet' type='text/css' href='pub/dataextractor/dataextractor.css'>");
   
   return "";
