@@ -63,6 +63,8 @@ function DataExtractorBinder($m)
 
     document.getElementById('section-list').addEventListener('sectionchange', handleFieldChange);
     document.getElementById('save-csv').addEventListener('click', saveCSV);
+    document.getElementById('set-name').addEventListener('input', handleFieldChange);
+    document.getElementById('set-description').addEventListener('input', handleFieldChange);
 
     gCM[gHighlightedSourceID].on('change', updateCSV);
   </script>");

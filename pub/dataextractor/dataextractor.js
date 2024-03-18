@@ -403,7 +403,7 @@ var generateCSV = (source = '', fieldDefsArr = []) => {
 }
 
 var getFieldDef = () => {
-  var fieldDefsArr = [];
+  var fields = [];
   var allRows = document.getElementsByClassName('foxsection fieldDefsRow');
   Array.from(allRows).forEach(function (row) {
     var newFieldDefObj = {};
@@ -419,10 +419,17 @@ var getFieldDef = () => {
     newFieldDefObj['end'] = input.value;
     newFieldDefObj['endCol'] = window.getComputedStyle(input).getPropertyValue('background-color');
 
-    fieldDefsArr.push(newFieldDefObj);
+    fields.push(newFieldDefObj);
   });
 
-  return fieldDefsArr;
+  var name = document.getElementById('set-name').value;
+  var description = document.getElementById('set-description').value;
+
+  return {
+    name: name, 
+    description: description, 
+    fields: fields
+  };
 }
 
 var addColors = (source, fieldDefs) => {
@@ -477,7 +484,7 @@ var updateStyle = () => {
     head.appendChild(style);
   }
   css = '';
-  fieldDef.forEach(field => {
+  fieldDef.fields.forEach(field => {
     if (field.start && field.start != "")
       css += '.cm-' + field.fieldName + '_start {background-color:' + field.startCol + '}\n';
     if (field.end && field.end != "")
@@ -507,7 +514,7 @@ var x = cleanRegEx("aaaa\\\");
 var updateMode = () => {
   var fieldDef = getFieldDef();
   var tokens = [];
-  fieldDef.forEach(field => {
+  fieldDef.fields.forEach(field => {
     if (field.start && field.start != "")
       tokens.push({"regex": RegExp(cleanRegEx(field.start)), "token": field.fieldName + '_start'});
     if (field.end && field.end != "")
@@ -545,7 +552,7 @@ const updateCSV = () => {
   clearTimeout(extractThread);
   extractThread = setTimeout(() => {
     gMarkers = [];
-    var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef());
+    var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef().fields);
     gCM[gResultingCSVInputID].setValue(result.csv);
     gMarkers = result.markers;
     gCM[gHighlightedSourceID].operation(updateMarkers);
@@ -607,7 +614,15 @@ var updateURL = () => {
   var fieldDef = getFieldDef();
   var parsedURL = new URL(gURL);
   var newURL = parsedURL.pathname + "?n=" + parsedURL.searchParams.get("n");
-  fieldDef.forEach((field, idx) => {
+  if (fieldDef.name && fieldDef.name != "") {
+    newURL += "&name=" + encodeURIComponent(fieldDef.name);
+    document.getElementById('set-name-show').innerHTML = fieldDef.name;
+  }
+  if (fieldDef.description && fieldDef.description != "") {
+    newURL += "&description=" + encodeURIComponent(fieldDef.description);
+    document.getElementById('set-description-show').innerHTML = fieldDef.description.replaceAll(/\n/g, '<br>');
+  }
+  fieldDef.fields.forEach((field, idx) => {
     if (field.fieldName && field.fieldName != "") {
       newURL += "&f" + idx + "n=" + encodeURIComponent(field.fieldName);
     }
@@ -627,6 +642,16 @@ var setFieldsFromURL = () => {
   var fieldStarts = [];
   var fieldEnds = [];
   var idxs = [];
+  
+  var name = parsedURL.searchParams.get('name');
+  var description = parsedURL.searchParams.get('description');
+
+  document.getElementById('set-name').value = name ? decodeURIComponent(name) : '';
+  document.getElementById('set-name-show').innerHTML = name ? decodeURIComponent(name) : 'No name';
+
+  document.getElementById('set-description').value = description ? decodeURIComponent(description) : '';
+  document.getElementById('set-description-show').innerHTML = description ? decodeURIComponent(description).replaceAll(/\n/g, '<br>') : 'No description';
+
   parsedURL.searchParams.forEach((value, key) => {
     var match = key.match(/^f([0-9]+)(n|s|e)$/);
     if (match) {
@@ -767,14 +792,14 @@ var deleteRow = (el, extract = true) => {
 //////////////////////////////////////////////////////////////////////////////
 // Save Field Def
 var saveFieldDef = () => {
-  var fieldDefArr = getFieldDef();
+  var fieldDef = getFieldDef();
   var fieldDefCSV = 'fieldNames;starts;startColors;ends;endsColors;\n';
 
 
-  fieldDefArr.forEach(fieldDef => {
-    for (const prop in fieldDef) {
-      if (Object.hasOwn(fieldDef, prop)) {
-        fieldDefCSV += fieldDef[prop] + ";"
+  fieldDef.fields.forEach(field => {
+    for (const prop in field) {
+      if (Object.hasOwn(field, prop)) {
+        fieldDefCSV += field[prop] + ";"
       }
     }
     fieldDefCSV += "\n";
