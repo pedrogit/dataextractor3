@@ -604,6 +604,7 @@ var updateURL = () => {
   if (fieldDef.name && fieldDef.name != "") {
     newURL += "&name=" + encodeURIComponent(fieldDef.name);
     document.getElementById('set-name-show').innerHTML = fieldDef.name;
+    document.title = 'CEF RegEx Data Extractor - ' + fieldDef.name;
   }
   if (fieldDef.description && fieldDef.description != "") {
     newURL += "&description=" + encodeURIComponent(fieldDef.description);
