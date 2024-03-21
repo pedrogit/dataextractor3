@@ -17,6 +17,8 @@ function LoadCMEditor($m)
 
   $HTMLHeaderFmt['cmeditor'] = '
     <script src="$FarmPubDirUrl/codemirror-5.65.16/lib/codemirror.js"></script>
+    <script src="$FarmPubDirUrl/codemirror-5.65.16/addon/scroll/annotatescrollbar.js"></script>
+
     <script>var gCM = [];</script>
     <link rel="stylesheet" href="$FarmPubDirUrl/codemirror-5.65.16/lib/codemirror.css"/>
   ';
@@ -56,17 +58,22 @@ function DataExtractorBinder($m)
     var gMarkers = [];
     var gURL = window.location.href;
 
-    document.getElementById('".$inputsource."').addEventListener('change', loadSourceInput);
-    document.getElementById('fieldDefsRowcopybutton').addEventListener('click', formatNewRow);
-    formatNewRow();
-    setFieldsFromURL();
+    document.getElementById('".$inputsource."').addEventListener('change', loadSourceInput); // when a new source is loaded
+    document.getElementById('fieldDefsRowcopybutton').addEventListener('click', formatNewRow); // when a new field is added
+    formatNewRow(); // colorize and name the first default field
+    setFieldsFromURL(); // set field set from URL parameters if they exist
 
+    // update markers and CSV as sson as the fiel set is modified
     document.getElementById('section-list').addEventListener('sectionchange', handleFieldChange);
     document.getElementById('save-csv').addEventListener('click', saveCSV);
-    document.getElementById('set-name').addEventListener('input', handleFieldChange);
+
+    // update URL when name or description are edited
+    document.getElementById('set-name').addEventListener('input', handleFieldChange); 
     document.getElementById('set-description').addEventListener('input', handleFieldChange);
 
-    gCM[gHighlightedSourceID].on('change', updateCSV);
+    gCM[gHighlightedSourceID].on('change', updateCSV); // when the highlighted source is edited
+    var gHLContainer = document.getElementById(gHighlightedSourceID); // to refer to the right identified CodeMirror container
+    new ResizeObserver(delayedUpdateMarkers).observe(gHLContainer.firstChild); // update scrollbar when resizing CodeMirror container
   </script>");
   
   SDV($HTMLHeaderFmt['dataextractor'], "

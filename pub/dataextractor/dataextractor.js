@@ -448,26 +448,7 @@ var addColors = (source, fieldDefs) => {
   return source;
 }
 
-function stripHtml(html)
-{
-   let tmp = document.createElement("DIV");
-   let nl = '#####newline#####';
-   let newhtml = html;
-   //let nl = '\n';
-console.log("stripHtml html="+html);
-   newhtml = newhtml.replace(/(?<!^)<div><br>/g, nl);
-   newhtml = newhtml.replace(/<br>/g, nl);
-console.log("stripHtml innerHTML="+tmp.innerHTML);
-   tmp.innerHTML = newhtml.replace(/(?<!^)<div>/g, nl+'<div>');
-console.log("stripHtml innerHTML="+tmp.innerHTML);
-   let ret = tmp.textContent || tmp.innerText || "";
-console.log("stripHtml ret="+ret);
-   return ret;
-}
-
 var handleFieldChange = () => {
-  updateStyle();
-  //updateMode();
   updateCSV();
   updateURL();
 }
@@ -486,42 +467,17 @@ var updateStyle = () => {
   css = '';
   fieldDef.fields.forEach(field => {
     if (field.start && field.start != "")
+    {
       css += '.cm-' + field.fieldName + '_start {background-color:' + field.startCol + '}\n';
+      css += '.cm-' + field.fieldName + '_start_scroll {background-color:' + field.startCol + '; opacity: 0.5;}\n';
+    }
     if (field.end && field.end != "")
+    {
       css += '.cm-' + field.fieldName + '_end {background-color:' + field.endCol + '}\n';
+      css += '.cm-' + field.fieldName + '_end_scroll {background-color:' + field.startCol + '; opacity: 0.5;}\n';
+    }
   });
   style.innerHTML = css;
-}
-
-var cleanRegEx = (re) => {
-  var newRe = re;
-  // remove last \ if it is not paired
-  var lastBackslashes = newRe.match(/\\+$/) || [];
-  if (lastBackslashes && lastBackslashes.length > 0 && ((lastBackslashes[0].length % 2) !== 0)){
-    newRe = newRe + "\\";
-  }
-  return newRe;
-}
-
-// Test
-var x = cleanRegEx('aaaa');
-//var x = cleanRegEx("aaaa\");
-//var x = cleanRegEx("aaaa\\");
-var x = cleanRegEx("aaaa\\\");
-//var x = cleanRegEx("aaaa\\\\");
-
-
-var updateMode = () => {
-  var fieldDef = getFieldDef();
-  var tokens = [];
-  fieldDef.fields.forEach(field => {
-    if (field.start && field.start != "")
-      tokens.push({"regex": RegExp(cleanRegEx(field.start)), "token": field.fieldName + '_start'});
-    if (field.end && field.end != "")
-      tokens.push({"regex": RegExp(cleanRegEx(field.end)), "token": field.fieldName + '_end'});
-  });
-  CodeMirror.defineSimpleMode('dataextractor', {"start": tokens});
-  gCM[gHighlightedSourceID].setOption("mode", 'dataextractor');
 }
 
 const updateMarkers = () => {
@@ -533,24 +489,55 @@ const updateMarkers = () => {
     });      
   }
 
-  // apply new markers
+  // clear current annotations
+  if (gCM[gHighlightedSourceID].annotations)
+  {
+    gCM[gHighlightedSourceID].annotations.forEach(function (ann) {
+      ann.clear();
+    });      
+  }
+
+  // apply new markers and create the arrays of scrollbar annotation
   gCM[gHighlightedSourceID].markers = [];
+  var annotations = {};
   gMarkers.forEach(function (mark) {
     gCM[gHighlightedSourceID].markers.push(gCM[gHighlightedSourceID].markText(mark.start, mark.end, mark.class));
+    if (annotations[mark.class.className] == undefined) {
+      annotations[mark.class.className] = [];
+    }
+    annotations[mark.class.className].push({from: mark.start, to: mark.end});
+
   });
+
+  gCM[gHighlightedSourceID].annotations = [];
+  for (let key in annotations) {
+    var annotation =  gCM[gHighlightedSourceID].annotateScrollbar({className: key + '_scroll'});
+    annotation.update(annotations[key]);
+    gCM[gHighlightedSourceID].annotations.push(annotation);
+  }
 
   return true;
 }
 
-var extractThread;
+// ensure we update scrollbar annotations only when the resizing of the box is finished
+var gDelayedUpdateMarkers;
+var delayedUpdateMarkers = () => {
+  clearTimeout(gDelayedUpdateMarkers);
+  gDelayedUpdateMarkers = setTimeout(() => {
+    gCM[gHighlightedSourceID].operation(updateMarkers);
+}, 300);
+}
+
+var gDelayedGenerateCSV;
 const updateCSV = () => {
   gCM[gResultingCSVInputID].setValue('');
   [...document.getElementsByClassName("de-processing-wheel")].forEach((element, index, array) => {
     element.style.display = 'inline';
   });
   
-  clearTimeout(extractThread);
-  extractThread = setTimeout(() => {
+  clearTimeout(gDelayedGenerateCSV);
+  gDelayedGenerateCSV = setTimeout(() => {
+    updateStyle();
     gMarkers = [];
     var result = generateCSV(gCM[gHighlightedSourceID].getValue(''), getFieldDef().fields);
     gCM[gResultingCSVInputID].setValue(result.csv);
@@ -692,12 +679,14 @@ var trimEnclosing = (str, ch) => {
   return newStr;
 }
 
+/*
 x = trimEnclosing("atotob", "a");
 x = trimEnclosing("atotoa", "a");
 x = trimEnclosing("aatotoaa", "a");
 x = trimEnclosing("xxtotoax", "x");
 x = trimEnclosing("xxtotoax", "xx");
 x = trimEnclosing("xxtotoaxx", "xx");
+*/
 
 var setFieldsFromCSV = (csv) => {
   if (csv.length > 1)
@@ -770,13 +759,6 @@ var formatNewRow = (addInputEvent = true) => {
 // Delete Row
 var deleteRow = (el, extract = true) => {
   var allDeletebuttons = document.getElementsByClassName('deletesectionbutton');
-  /*
-  if (allDeletebuttons.length == 2) {
-    Array.from(allDeletebuttons).forEach(function (element) {
-      element.setAttribute('disabled', true);
-    });
-  }
-  */
   if (allDeletebuttons.length > 1) {
     if (el.currentTarget) {
       el = el.currentTarget;
@@ -863,21 +845,3 @@ var saveCSV = () => {
   a.click();
 }
 
-
-
-// assign default test value to source
-/*document.getElementById("sourceinput").value = "<row>\n\
- <f1>data1</f1>\n\
- <f2>data2</f2>\n\
- <f2>data2</f2>\n\
-</row>\n\
-<row>\n\
- <f1>data3</f1>\n\
- <f2>data4</f2>\n\
-</row>\n\
-";
-
-document.getElementById("sourceinput").value = "xaywbzxcy";*/
-//console.log('main');
-
-//prepareExtract();
