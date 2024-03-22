@@ -477,6 +477,10 @@ var updateURL = () => {
   window.history.pushState("object or string", "Title", newURL);
 }
 
+var getAppLanguage = () => {
+  return document.getElementById('pagelanguage').innerText;
+}
+
 var setFieldsFromURL = () => {
   var parsedURL = new URL(gURL);
   var fieldNames = [];
@@ -488,10 +492,12 @@ var setFieldsFromURL = () => {
   var description = parsedURL.searchParams.get('description');
 
   document.getElementById('set-name').value = name ? decodeURIComponent(name) : '';
-  document.getElementById('set-name-show').innerHTML = name ? decodeURIComponent(name) : 'No name';
+  var defaultName = getAppLanguage() == 'FR' ? 'Aucun nom' : 'No name'
+  document.getElementById('set-name-show').innerHTML = name ? decodeURIComponent(name) : defaultName;
 
+  var defaultDescription = getAppLanguage() == 'FR' ? 'Aucune description' : 'No description'
   document.getElementById('set-description').value = description ? decodeURIComponent(description) : '';
-  document.getElementById('set-description-show').innerHTML = description ? decodeURIComponent(description).replaceAll(/\n/g, '<br>') : 'No description';
+  document.getElementById('set-description-show').innerHTML = description ? decodeURIComponent(description).replaceAll(/\n/g, '<br>') : defaultDescription;
 
   parsedURL.searchParams.forEach((value, key) => {
     var match = key.match(/^f([0-9]+)(n|s|e)$/);
