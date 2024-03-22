@@ -28,6 +28,9 @@ function LoadCMEditor($m)
     #'.$id.' > .CodeMirror {
       '.$cmstyle.'
     }
+    #center-content-wrapper {
+      background-color: #cfd4c8;
+    }
     --></style>
   ';
 
