@@ -635,7 +635,7 @@ var loadSourceInput = (e) => {
 var saveCSV = () => {
   var source = gCM[gResultingCSVInputID].getValue();
 
-  var csvblob = new Blob([source], { type: 'text/csv' });
+  var csvblob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), source], { type: 'text/excel;charset=utf8' });
   var a = document.createElement('a');
   a.download = 'resultingCSV.csv';
   a.href = window.URL.createObjectURL(csvblob);
