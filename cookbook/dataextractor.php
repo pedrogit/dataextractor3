@@ -68,7 +68,8 @@ function DataExtractorBinder($m)
 
     // update markers and CSV as sson as the fiel set is modified
     document.getElementById('section-list').addEventListener('sectionchange', handleFieldChange);
-    document.getElementById('save-csv').addEventListener('click', saveCSV);
+    document.getElementById('save-csv-button').addEventListener('click', saveCSV);
+    document.getElementById('reset-all-button').addEventListener('click', resetAll);
 
     // update URL when name or description are edited
     document.getElementById('set-name').addEventListener('input', handleFieldChange); 

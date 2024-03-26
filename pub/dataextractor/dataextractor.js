@@ -502,7 +502,7 @@ var setFieldsFromURL = () => {
   parsedURL.searchParams.forEach((value, key) => {
     var match = key.match(/^f([0-9]+)(n|s|e)$/);
     if (match) {
-      idx = Number(match[1]);
+      var idx = Number(match[1]);
       //idxs.push(idx);
       idxs[idx] = idx;
       switch (match[2]) {
@@ -557,7 +557,7 @@ var setFieldsFromCSV = (csv) => {
       return;
     }
     // make sure the number of field in the interface is ok
-    var fieldRowsCnt = document.getElementsByClassName('section-list-fieldDefsRow').length;
+    var fieldRowsCnt = document.getElementsByClassName('foxsection fieldDefsRow').length;
 
     while (fieldRowsCnt != csv.length - 1) {
       if (fieldRowsCnt < csv.length - 1) {
@@ -593,7 +593,7 @@ var setFieldsFromCSV = (csv) => {
 //////////////////////////////////////////////////////////////////////////////
 // formatNewRow
 // format the last added row
-var formatNewRow = (addInputEvent = true) => {
+var formatNewRow = (addInputEvent = true, fieldName = undefined) => {
   var allRows = document.getElementsByClassName("foxsection fieldDefsRow");
   var newRow = allRows[allRows.length - 1];
   if (addInputEvent){
@@ -611,8 +611,12 @@ var formatNewRow = (addInputEvent = true) => {
   newRow.querySelector("input[name='start']").style.cssText = 'background-color:' + cols[1];
   newRow.querySelector("input[name='end']").style.cssText = 'background-color:' + cols[0];
 
+  // reset delimiters
+  newRow.querySelector("input[name='start']").value = '';
+  newRow.querySelector("input[name='end']").value = '';
+
   // increment the field name
-  newRow.querySelector("input[name='fieldname']").value = "field" + parent.childElementCount;
+  newRow.querySelector("input[name='fieldname']").value = "field" + (fieldName ? fieldName : parent.childElementCount);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -642,3 +646,12 @@ var saveCSV = () => {
   a.click();
 }
 
+//////////////////////////////////////////////////////////////////////////////
+// Reset all
+var resetAll = () => {
+  var deleteButtons = document.querySelectorAll(".foxsection.fieldDefsRow .deletesectionbutton");
+  for (var i = deleteButtons.length - 2; i >= 0 ; i--) {
+      deleteButtons[i].click();
+  }
+  formatNewRow(false, '1');
+}
