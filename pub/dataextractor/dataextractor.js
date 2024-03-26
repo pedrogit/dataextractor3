@@ -616,7 +616,15 @@ var formatNewRow = (addInputEvent = true, fieldName = undefined) => {
   newRow.querySelector("input[name='end']").value = '';
 
   // increment the field name
-  newRow.querySelector("input[name='fieldname']").value = "field" + (fieldName ? fieldName : parent.childElementCount);
+  var finalName = 'field' + (fieldName ? fieldName : parent.childElementCount);
+  var fieldDef = getFieldDef();
+  fieldDef.fields.forEach((field, idx) => {
+    if (finalName == field.fieldName)
+    {
+      finalName += '_' + parent.childElementCount;
+    }
+  });
+  newRow.querySelector("input[name='fieldname']").value = finalName;
 }
 
 //////////////////////////////////////////////////////////////////////////////
