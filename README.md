@@ -1,1 +1,1 @@
-# developement
+Data Extractor lets you build and use a data extractor from text files, HTML, XML, etc., structured or semi-structured with delimiters and to export them in CSV. Values to be extracted are identified by start and end delimiters defined using regular expressions.
